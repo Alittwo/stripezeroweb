@@ -71,7 +71,7 @@ def full_stripe_check(cc, mm, yy, cvv):
                              re.sub('<[^<]+?>', '', response_json.get('messages', 'Declined by website.')))
             return {"status": "Declined", "response": error_message.strip(), "decline_type": "card_decline"}
         if response_json.get('status') == 'succeeded':
-            return {"status": "Approved", "response": "Payment method successfully added.", "decline_type": "none"}
+            return {"status": "Approved", "response": "Your card's security code is incorrect.", "decline_type": "none"}
         else:
             return {"status": "Declined", "response": "Unknown response from website.", "decline_type": "process_error"}
 
